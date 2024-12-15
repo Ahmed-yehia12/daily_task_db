@@ -21,6 +21,10 @@ jobs:
         with:
           node-version: '18.x'
 
+      - name: Create .env file
+        run: |
+          echo "DB_CONNECTION=${{ secrets.REACT_APP_API_URL }}" > .env
+
       - name: npm install, build, and test
         run: |
           npm install
